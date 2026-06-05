@@ -4,168 +4,170 @@
 
 // ── Themes ────────────────────────────────────────────────────
 export type ThemeId =
-  | 'cyber-dark'
-  | 'pure-white'
-  | 'void'
-  | 'aurora'
-  | 'sunset'
+  | "cyber-dark"
+  | "pure-white"
+  | "void"
+  | "aurora"
+  | "sunset";
 
 export interface ThemeConfig {
-  id: ThemeId
-  label: string
+  id: ThemeId;
+  label: string;
   /** Preview swatch color */
-  swatch: string
-  isDark: boolean
+  swatch: string;
+  isDark: boolean;
 }
 
 // ── Cursor ────────────────────────────────────────────────────
-export type CursorState = 'default' | 'link' | 'card' | 'text'
+export type CursorState = "default" | "link" | "card" | "text";
 
 export interface CursorRingConfig {
-  size: number
-  bg: string
-  borderColor: string
-  glow: string
-  showDot: boolean
-  label: string | null
+  size: number;
+  bg: string;
+  borderColor: string;
+  glow: string;
+  showDot: boolean;
+  label: string | null;
 }
 
 // ── Navigation ────────────────────────────────────────────────
 export interface NavLink {
-  label: string
-  href: string
+  label: string;
+  href: string;
   /** Optionally matches multiple path prefixes */
-  activeOn?: string[]
+  activeOn?: string[];
 }
 
 // ── Social Links ──────────────────────────────────────────────
 export type SocialPlatform =
-  | 'github'
-  | 'linkedin'
-  | 'twitter'
-  | 'email'
-  | 'leetcode'
-  | 'codeforces'
+  | "github"
+  | "linkedin"
+  | "twitter"
+  | "email"
+  | "leetcode"
+  | "codeforces";
 
 export interface SocialLink {
-  platform: SocialPlatform
-  url: string
-  label: string
+  platform: SocialPlatform;
+  url: string;
+  label: string;
 }
 
 // ── Projects ──────────────────────────────────────────────────
 export type ProjectCategory =
-  | 'cloud'
-  | 'ai'
-  | 'systems'
-  | 'web'
-  | 'data'
-  | 'fullstack'
+  | "cloud"
+  | "ai"
+  | "systems"
+  | "web"
+  | "data"
+  | "fullstack";
 
 export interface ProjectHighlight {
-  text: string
+  text: string;
 }
 
 export interface ArchStep {
-  icon: string
-  label: string
+  icon: string;
+  label: string;
 }
 
 export interface Project {
-  id: string
-  title: string
-  subtitle: string
-  description: string
-  category: ProjectCategory
-  featured?: boolean
-  tech: string[]
-  highlights: string[]
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  category: ProjectCategory;
+  featured?: boolean;
+  tech: string[];
+  highlights: string[];
   /** Optional architecture flow for cloud projects */
-  architecture?: ArchStep[]
-  githubUrl?: string
-  liveUrl?: string
+  architecture?: ArchStep[];
+  githubUrl?: string;
+  liveUrl?: string;
   /** Year the project was built */
-  year: number
+  year: number;
 }
 
 // ── Skills ────────────────────────────────────────────────────
 export interface Skill {
-  name: string
+  name: string;
   /** 0–100 */
-  level: number
+  level: number;
   /** Optional icon key from react-icons */
-  icon?: string
+  icon?: string;
 }
 
 export interface SkillGroup {
-  id: string
-  label: string
-  icon: string
-  skills: Skill[]
+  id: string;
+  label: string;
+  icon: string;
+  skills: Skill[];
 }
 
 // ── Experience / Timeline ────────────────────────────────────
-export type TimelineItemType = 'education' | 'project' | 'achievement' | 'cert'
+export type TimelineItemType = "education" | "project" | "achievement" | "cert";
 
 export interface TimelineItem {
-  id: string
-  type: TimelineItemType
-  title: string
-  subtitle: string
-  date: string
-  description?: string
-  tags?: string[]
+  id: string;
+  type: TimelineItemType;
+  title: string;
+  subtitle: string;
+  date: string;
+  description?: string;
+  tags?: string[];
 }
 
 // ── Education ────────────────────────────────────────────────
 export interface Education {
-  institution: string
-  degree: string
-  field: string
-  year: string
-  location: string
-  cgpa?: string
-  highlights?: string[]
+  institution: string;
+  degree: string;
+  field: string;
+  year: string;
+  location: string;
+  cgpa?: string;
+  highlights?: string[];
 }
 
 // ── Portfolio Meta ────────────────────────────────────────────
 export interface PortfolioMeta {
-  name: string
-  displayName: string
-  role: string
+  name: string;
+  displayName: string;
+  role: string;
   /** Rotating roles for typewriter */
-  roles: string[]
-  tagline: string
-  bio: string
-  email: string
-  location: string
-  resumeUrl: string
-  availableFrom: string
+  roles: string[];
+  tagline: string;
+  bio: string;
+  email: string;
+  location: string;
+  resumeUrl: string;
+  availableFrom: string;
   socials: {
-    github: string
-    linkedin: string
-  }
+    github: string;
+    linkedin: string;
+    twitter?: string;
+    instagram?: string;
+  };
 }
 
 // ── Recharts ─────────────────────────────────────────────────
 export interface RadarDataPoint {
-  subject: string
-  value: number
-  fullMark: number
+  subject: string;
+  value: number;
+  fullMark: number;
 }
 
 // ── Page Transition ──────────────────────────────────────────
 export interface PageTransitionProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 // ── Component Prop Helpers ───────────────────────────────────
 export interface WithClassName {
-  className?: string
+  className?: string;
 }
 
 export interface WithChildren {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export type WithChildrenAndClassName = WithChildren & WithClassName
+export type WithChildrenAndClassName = WithChildren & WithClassName;

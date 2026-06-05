@@ -520,7 +520,7 @@ export default function Hero() {
                     color: "var(--text-secondary)",
                   }}
                 >
-                  SDE · AI · Cloud · Data
+                  Full Stack Development · AI · Cloud · React
                 </span>
               </div>
             </motion.div>
@@ -541,7 +541,7 @@ export default function Hero() {
                 }}
               >
                 <SplitText text="Nayan " />
-                <SplitText text="Deep" className="gradient-text-static" />
+                <SplitText text="Kumar" className="gradient-text-static" />
               </h1>
             </div>
 
@@ -555,13 +555,13 @@ export default function Hero() {
                 style={{ color: "var(--accent-1)" }}
               >
                 <Briefcase size={14} />
-                B.Tech Computer Science
+                Full Stack Developer
               </span>
               <span
                 className="text-sm"
                 style={{ color: "var(--text-secondary)" }}
               >
-                @ Desh Bhagat University
+                Bihar, India · B.Tech Student
               </span>
             </motion.div>
 

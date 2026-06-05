@@ -1,21 +1,26 @@
 {
-  "name": "Nayan Deep Portfolio",
-  "short_name": "Nayan Deep",
-  "description": "Portfolio of Nayan Deep, B.Tech CSE student at Desh Bhagat University.",
+  "name": "Nayan Kumar Portfolio",
+  "short_name": "Nayan Kumar",
+  "description": "Professional portfolio of Nayan Kumar, Full Stack Developer, React Developer, AI Enthusiast and B.Tech Student.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#050505",
-  "theme_color": "#4ade80",
+  "background_color": "#0A0A0F",
+  "theme_color": "#00FF99",
   "icons": [
     {
-      "src": "/icon.png",
+      "src": "/icon.svg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/svg+xml"
     },
     {
-      "src": "/icon.png",
+      "src": "/icon.svg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
     }
   ]
 }

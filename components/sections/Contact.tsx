@@ -79,7 +79,7 @@ export default function Contact() {
           company: data.company || "Not provided",
           subject: data.subject,
           message: data.message,
-          to_name: "Nayan Deep",
+          to_name: "Nayan Kumar",
         },
         publicKey,
       );
@@ -96,25 +96,37 @@ export default function Contact() {
   };
 
   const CONTACT_CARDS = [
-    { id: "email", label: "Email", value: META.email, icon: Mail },
-    { id: "phone", label: "Phone", value: "+91-9121684888", icon: Phone },
+    {
+      id: "email",
+      label: "Email",
+      value: META.email,
+      icon: Mail,
+      link: `mailto:${META.email}`,
+    },
+    {
+      id: "phone",
+      label: "Phone",
+      value: "+91-9121684888",
+      icon: Phone,
+      link: "tel:+919121684888",
+    },
     {
       id: "location",
       label: "Location",
-      value: "Samastipur, Bihar, India",
+      value: META.location,
       icon: MapPin,
     },
     {
       id: "linkedin",
       label: "LinkedIn",
-      value: "linkedin.com/in/nayan-deep-460119279",
+      value: META.socials.linkedin.replace("https://", ""),
       icon: FaLinkedin,
       link: META.socials.linkedin,
     },
     {
       id: "github",
       label: "GitHub",
-      value: "github.com/nayan-codes15",
+      value: META.socials.github.replace("https://", ""),
       icon: FaGithub,
       link: META.socials.github,
     },
@@ -144,7 +156,8 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="text-base sm:text-lg text-[var(--text-secondary)]"
           >
-            Let&apos;s talk about opportunities
+            Reach out for internships, product collaborations, or software
+            development opportunities.
           </motion.p>
         </div>
 
@@ -262,6 +275,8 @@ export default function Contact() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-8 bg-[rgba(var(--bg-primary-rgb),0.95)] rounded-3xl backdrop-blur-md"
+                role="status"
+                aria-live="polite"
               >
                 <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-6">
                   <Check className="w-8 h-8 text-green-500" />
@@ -323,7 +338,7 @@ export default function Contact() {
                       },
                     })}
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="your.email@example.com"
                     className={`w-full bg-[rgba(var(--bg-primary-rgb),0.4)] border rounded-xl px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[var(--accent-1)]/50 transition-all ${errors.email ? "border-red-500/50 focus:border-red-500" : "border-[var(--border)] focus:border-[var(--accent-1)]"}`}
                   />
                   {errors.email && (

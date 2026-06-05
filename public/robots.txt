@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://potfilolie.vercel.app/sitemap.xml
+Host: https://potfilolie.vercel.app

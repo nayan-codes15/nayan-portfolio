@@ -29,6 +29,30 @@ const LinkedinIcon = ({ size = 20 }: { size?: number }) => (
     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
   </svg>
 );
+
+const TwitterIcon = ({ size = 20 }: { size?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.38 8.56 8.56 0 01-2.72 1.04 4.27 4.27 0 00-7.28 3.9A12.1 12.1 0 013 4.8a4.26 4.26 0 001.32 5.7 4.24 4.24 0 01-1.93-.53v.05a4.27 4.27 0 003.43 4.18 4.3 4.3 0 01-1.93.07 4.28 4.28 0 003.99 2.97A8.57 8.57 0 012 19.54a12.1 12.1 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2v-.56A8.7 8.7 0 0024 5.6a8.4 8.4 0 01-2.4.66 4.25 4.25 0 001.86-2.35" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 20 }: { size?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm4.25 3.5a5.25 5.25 0 110 10.5 5.25 5.25 0 010-10.5zm0 1.5a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm5.25-.5a1 1 0 110 2 1 1 0 010-2z" />
+  </svg>
+);
 import { useMounted } from "@/hooks/useMounted";
 import { useScrollY } from "@/hooks/useScrollProgress";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -48,15 +72,14 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
-  { id: "current-focus", label: "Skills" },
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
-  {
-    id: "github",
-    label: "GitHub",
-    external: "https://github.com/nayan-codes15",
-  },
   { id: "certifications", label: "Certs" },
   { id: "education", label: "Education" },
+  { id: "testimonials", label: "Testimonials" },
+  { id: "blog", label: "Blog" },
+  { id: "resume", label: "Resume" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -64,14 +87,24 @@ const SECTION_IDS = NAV_ITEMS.filter((n) => !n.external).map((n) => n.id);
 
 const SOCIAL_LINKS = [
   {
-    href: "https://github.com/nayan-codes15",
+    href: "https://github.com/nayankumar",
     Icon: GithubIcon,
     label: "GitHub",
   },
   {
-    href: "https://www.linkedin.com/in/nayan-deep-460119279",
+    href: "https://www.linkedin.com/in/nayan-kumar",
     Icon: LinkedinIcon,
     label: "LinkedIn",
+  },
+  {
+    href: "https://twitter.com/nayankumar",
+    Icon: TwitterIcon,
+    label: "Twitter",
+  },
+  {
+    href: "https://instagram.com/nayankumar",
+    Icon: InstagramIcon,
+    label: "Instagram",
   },
   { href: `mailto:${META.email}`, Icon: Mail, label: "Email" },
 ];
@@ -128,7 +161,7 @@ function Logo({
   scrolled?: boolean;
 }) {
   return (
-    <Link href="/" aria-label="Nayan Deep — Home" onClick={onClick}>
+    <Link href="/" aria-label="Nayan Kumar — Home" onClick={onClick}>
       <motion.div
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -179,13 +212,13 @@ function Logo({
             className="font-bold text-sm tracking-tight"
             style={{ color: "var(--text-primary)" }}
           >
-            Nayan Deep
+            Nayan Kumar
           </span>
           <span
             className="text-[10px] font-medium tracking-widest uppercase"
             style={{ color: "var(--accent-1)" }}
           >
-            Portfolio
+            Full Stack Portfolio
           </span>
         </div>
       </motion.div>
@@ -373,13 +406,13 @@ function MobileMenu({
                 className="font-bold text-base"
                 style={{ color: "var(--text-primary)" }}
               >
-                Nayan Deep
+                Nayan Kumar
               </span>
               <span
                 className="text-xs tracking-widest uppercase"
                 style={{ color: "var(--accent-1)" }}
               >
-                CS Student · Portfolio
+                Full Stack Portfolio
               </span>
             </div>
           </div>

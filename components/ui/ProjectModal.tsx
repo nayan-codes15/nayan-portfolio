@@ -9,6 +9,7 @@ import {
   Rocket,
   Lightbulb,
   Wrench,
+  ExternalLink,
 } from "lucide-react";
 import { Project } from "@/data/projects";
 
@@ -86,6 +87,39 @@ export default function ProjectModal({
                 <p className="max-w-3xl text-base leading-7 text-[#C9D1D9]">
                   {project.overview}
                 </p>
+                {project.imageUrl && (
+                  <div className="mt-6 overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.08)] bg-[#060b12] shadow-[0_20px_60px_rgba(0,0,0,0.25)] h-64 sm:h-72">
+                    <div
+                      className="h-full w-full bg-cover bg-center"
+                      style={{ backgroundImage: `url(${project.imageUrl})` }}
+                      aria-label={`Preview image for ${project.title}`}
+                    />
+                  </div>
+                )}
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#00ff99] px-4 py-3 text-sm font-semibold text-black transition hover:opacity-90"
+                    >
+                      Live Demo
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.12)] bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                    >
+                      View on GitHub
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
 

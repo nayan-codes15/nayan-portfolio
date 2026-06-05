@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="g4" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#22c55e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#g4)" />
+  <text x="50%" y="42%" text-anchor="middle" font-family="Inter, sans-serif" font-size="72" fill="#ffffff" font-weight="700">React Dashboard</text>
+  <text x="50%" y="58%" text-anchor="middle" font-family="Inter, sans-serif" font-size="40" fill="#c7d2fe">Data visualization UI</text>
+</svg>

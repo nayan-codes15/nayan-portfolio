@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Headphones, Play, Pause, Square, RotateCcw, X } from "lucide-react";
 
 const SCRIPT_SENTENCES = [
-  "Welcome to Nayan Deep's engineering portfolio.",
+  "Welcome to Nayan Kumar's engineering portfolio.",
   "Nayan is a second year B.Tech Computer Science student at Desh Bhagat University, with a strong foundation from his Diploma in Computer Science at NIMS University Jaipur.",
   "He is passionate about Software Development, Artificial Intelligence, Cloud Computing, and Data Analytics — and is actively seeking internship opportunities in these fields.",
   "Feel free to explore his projects, technical skills, certifications, GitHub activity, and his learning journey.",

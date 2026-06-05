@@ -47,6 +47,27 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(0,255,153,0.12),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(0,217,255,0.12),transparent_32%)] opacity-90" />
           <div className="absolute inset-0 pointer-events-none rounded-[24px] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),transparent_45%)] opacity-40" />
           <div className="relative p-6 md:p-8 flex flex-col flex-grow">
+            <div className="relative mb-6 overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.08)] bg-[#061018] h-48">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: project.imageUrl
+                    ? `url(${project.imageUrl})`
+                    : undefined,
+                }}
+                aria-label={`Preview of ${project.title}`}
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.8))]" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <p className="text-xs uppercase tracking-[0.35em] text-[#A1A1AA] mb-2">
+                  {project.category}
+                </p>
+                <h3 className="text-xl font-semibold sm:text-2xl">
+                  {project.title}
+                </h3>
+              </div>
+            </div>
+
             <div className="flex flex-col gap-6 mb-6 md:flex-row md:items-start md:justify-between">
               <div className="flex items-start gap-4">
                 <div className="flex h-14 w-14 items-center justify-center rounded-3xl border border-[rgba(0,255,170,0.18)] bg-[#061018] text-white shadow-[inset_0_0_0_1px_rgba(0,255,153,0.08)]">
@@ -79,6 +100,31 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <p className="text-sm leading-7 text-[#A1A1AA] mb-6">
               {project.overview}
             </p>
+
+            <div className="mb-6 flex flex-wrap gap-3">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#00ff99] px-4 py-2 text-sm font-semibold text-black transition hover:opacity-90"
+                >
+                  Live Demo
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              )}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.12)] bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  GitHub
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              )}
+            </div>
 
             <div className="flex flex-wrap gap-2 mb-6">
               {project.technologies.map((tech, i) => (

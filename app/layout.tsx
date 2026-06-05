@@ -27,62 +27,58 @@ const jetbrains = JetBrains_Mono({
 
 // ── Metadata ──────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Nayan Deep | CS Student & Aspiring Software Developer",
+  title: "Nayan Kumar | Full Stack Developer Portfolio",
   description:
-    "Portfolio of Nayan Deep, B.Tech CSE student at Desh Bhagat University. Skilled in C, C++, Java, Python, AI basics, AWS, and more. Seeking SDE/AI/Cloud internships.",
+    "Professional portfolio of Nayan Kumar, Full Stack Developer, React Developer, AI Enthusiast and B.Tech Student.",
   keywords: [
-    "Nayan Deep",
-    "CS Student",
+    "Nayan Kumar",
+    "Full Stack Developer",
+    "React Developer",
     "Portfolio",
-    "Software Developer",
-    "Internship",
-    "Cloud Computing",
-    "AWS",
-    "React",
-    "TypeScript",
-    "Desh Bhagat University",
-    "AI basics",
-    "Data Analytics",
-    "C",
-    "C++",
-    "Java",
-    "Python",
+    "Software Engineer",
+    "Bihar",
+    "India",
   ],
-  authors: [{ name: "Nayan Deep", url: "https://github.com/nayan-codes15" }],
-  creator: "Nayan Deep",
+  authors: [{ name: "Nayan Kumar", url: "https://github.com/nayankumar" }],
+  creator: "Nayan Kumar",
   metadataBase: new URL("https://potfilolie.vercel.app"),
   alternates: {
     canonical: "/",
   },
+  verification: {
+    google: "YOUR_GOOGLE_VERIFICATION_TOKEN",
+  },
   openGraph: {
     type: "website",
     url: "/",
-    title: "Nayan Deep | CS Student & Aspiring Software Developer",
+    title: "Nayan Kumar | Full Stack Developer Portfolio",
     description:
-      "Portfolio of Nayan Deep, B.Tech CSE student at Desh Bhagat University. Skilled in C, C++, Java, Python, AI basics, AWS, and more. Seeking SDE/AI/Cloud internships.",
-    siteName: "Nayan Deep Portfolio",
+      "Professional portfolio of Nayan Kumar, Full Stack Developer, React Developer, AI Enthusiast and B.Tech Student.",
+    siteName: "Nayan Kumar Portfolio",
     images: [
       {
         url: "/api/og",
         width: 1200,
         height: 630,
-        alt: "Nayan Deep — CS Student & Aspiring Software Developer",
+        alt: "Nayan Kumar — Full Stack Developer Portfolio",
       },
     ],
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nayan Deep | CS Student & Aspiring Software Developer",
+    title: "Nayan Kumar | Full Stack Developer Portfolio",
     description:
-      "Portfolio of Nayan Deep, B.Tech CSE student at Desh Bhagat University. Seeking SDE/AI/Cloud internships.",
+      "Professional portfolio of Nayan Kumar, Full Stack Developer, React Developer, AI Enthusiast and B.Tech Student.",
     images: ["/api/og"],
-    creator: "@nayandeep",
+    creator: "@nayankumar",
   },
   robots: { index: true, follow: true },
 
   icons: {
-    apple: "/icon.png", // Add icon.png to public/
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+    shortcut: "/favicon.svg",
   },
 };
 
@@ -96,21 +92,40 @@ export const viewport: Viewport = {
 };
 
 // ── JSON-LD Schema ────────────────────────────────────────────
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Nayan Deep",
-  jobTitle: "CS Student & Aspiring Software Developer",
-  url: "https://potfilolie.vercel.app",
-  sameAs: [
-    "https://github.com/nayan-codes15",
-    "https://www.linkedin.com/in/nayan-deep-460119279",
-  ],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "Desh Bhagat University",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Nayan Kumar",
+    jobTitle: "Full Stack Developer",
+    description:
+      "Full Stack Developer and AI enthusiast building polished web applications, cloud systems, and performance-focused user experiences.",
+    url: "https://potfilolie.vercel.app",
+    sameAs: [
+      "https://github.com/nayankumar",
+      "https://www.linkedin.com/in/nayan-kumar",
+      "https://twitter.com/nayankumar",
+      "https://www.instagram.com/nayankumar",
+    ],
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Desh Bhagat University",
+    },
   },
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: "https://potfilolie.vercel.app",
+    name: "Nayan Kumar Portfolio",
+    description:
+      "Portfolio website showcasing full-stack development, AI projects, education, certifications, and contact details for recruiters.",
+    publisher: {
+      "@type": "Organization",
+      name: "Nayan Kumar",
+      url: "https://potfilolie.vercel.app",
+    },
+  },
+];
 
 // ── Root layout ───────────────────────────────────────────────
 export default function RootLayout({

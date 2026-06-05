@@ -82,7 +82,7 @@ export default function IntroVideo() {
           <div className="relative z-10 flex w-full items-center justify-center px-6 py-10 text-center">
             <div className="mx-auto max-w-2xl rounded-3xl border border-white/10 bg-white/10 px-6 py-8 backdrop-blur-2xl">
               <h1 className="text-4xl font-semibold uppercase tracking-[0.32em] text-white sm:text-5xl">
-                NAYAN DEEP
+                NAYAN KUMAR
               </h1>
               <p className="mt-4 text-base font-medium uppercase tracking-[0.28em] text-white/80 sm:text-lg">
                 B.Tech Computer Science Student

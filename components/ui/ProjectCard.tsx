@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { X, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
+import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 import Tilt from "react-parallax-tilt";
 import { Project } from "@/data/projects";
 import ProjectModal from "./ProjectModal";
@@ -18,104 +18,87 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   >(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const PrimaryIcon = project.technologies[0]?.Icon;
+  const actionGradient =
+    index === 0
+      ? "linear-gradient(90deg, #00FF99, #20F2C7)"
+      : "linear-gradient(90deg, #00D9FF, #4FB7FF)";
+
   const toggleSection = (section: "problem" | "features" | "outcomes") => {
-    if (expandedSection === section) setExpandedSection(null);
-    else setExpandedSection(section);
+    setExpandedSection((current) => (current === section ? null : section));
   };
 
   return (
     <>
       <Tilt
-        tiltMaxAngleX={5}
-        tiltMaxAngleY={5}
-        scale={1.02}
-        transitionSpeed={2000}
+        tiltMaxAngleX={4}
+        tiltMaxAngleY={4}
+        scale={1}
+        transitionSpeed={2500}
         className="h-full"
       >
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="group relative h-full flex flex-col glass-panel rounded-2xl overflow-hidden"
+          transition={{ duration: 0.5, delay: index * 0.08 }}
+          className="group relative h-full flex flex-col rounded-[24px] border border-[rgba(0,255,170,0.15)] bg-[#0A0F14] shadow-[0_30px_80px_rgba(0,0,0,0.22)] transition-transform duration-400 hover:-translate-y-1 hover:shadow-[0_32px_90px_rgba(0,255,153,0.18)] overflow-hidden"
         >
-          {/* Animated Gradient Border (visible on hover) */}
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-[var(--accent-1)] to-[var(--accent-2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl p-[1px]"
-            style={{ zIndex: -1 }}
-          >
-            <div className="w-full h-full bg-[var(--bg-card)] rounded-2xl" />
-          </div>
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(0,255,153,0.12),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(0,217,255,0.12),transparent_32%)] opacity-90" />
+          <div className="absolute inset-0 pointer-events-none rounded-[24px] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),transparent_45%)] opacity-40" />
+          <div className="relative p-6 md:p-8 flex flex-col flex-grow">
+            <div className="flex flex-col gap-6 mb-6 md:flex-row md:items-start md:justify-between">
+              <div className="flex items-start gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-3xl border border-[rgba(0,255,170,0.18)] bg-[#061018] text-white shadow-[inset_0_0_0_1px_rgba(0,255,153,0.08)]">
+                  {PrimaryIcon ? (
+                    <PrimaryIcon className="h-6 w-6 text-[#00FF99]" />
+                  ) : (
+                    <span className="text-sm font-bold">P</span>
+                  )}
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[#A1A1AA]">
+                    {project.category}
+                  </p>
+                  <h3 className="mt-3 text-2xl font-semibold text-white">
+                    {project.title}
+                  </h3>
+                </div>
+              </div>
 
-          <div className="p-6 md:p-8 flex flex-col flex-grow">
-            {/* Header / Badges */}
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-              <span
-                className="px-3 py-1 rounded-full text-xs font-semibold"
-                style={{
-                  background:
-                    "color-mix(in srgb, var(--accent-1) 15%, transparent)",
-                  color: "var(--accent-1)",
-                }}
-              >
-                {project.category}
-              </span>
-              <div className="flex gap-2">
-                <span
-                  className="px-2 py-1 rounded text-[10px] font-medium tracking-wider uppercase"
-                  style={{
-                    backgroundColor: "rgba(var(--bg-primary-rgb), 0.1)",
-                    color: "var(--text-secondary)",
-                  }}
-                >
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#00FF99] border-[rgba(0,255,170,0.18)] bg-[rgba(0,255,153,0.08)]">
                   {project.difficulty}
                 </span>
-                <span
-                  className="px-2 py-1 rounded text-[10px] font-medium tracking-wider uppercase"
-                  style={{
-                    background:
-                      "color-mix(in srgb, var(--success) 15%, transparent)",
-                    color: "var(--success)",
-                  }}
-                >
+                <span className="rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#00D9FF] border-[rgba(0,217,255,0.18)] bg-[rgba(0,217,255,0.08)]">
                   {project.status}
                 </span>
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-
-            <p
-              className="text-sm mb-6 leading-relaxed"
-              style={{ color: "var(--text-secondary)" }}
-            >
+            <p className="text-sm leading-7 text-[#A1A1AA] mb-6">
               {project.overview}
             </p>
 
-            {/* Tech Stack Pills */}
             <div className="flex flex-wrap gap-2 mb-6">
               {project.technologies.map((tech, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs bg-[var(--bg-accent)] text-[var(--text-secondary)]"
+                  className="flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.08)] bg-white/5 px-3 py-2 text-xs font-medium text-[#E5E7EB]"
                 >
-                  <tech.Icon className="w-3.5 h-3.5" />
+                  <tech.Icon className="h-3.5 w-3.5 text-[#00FF99]" />
                   {tech.name}
                 </div>
               ))}
             </div>
 
-            {/* Expandable Sections */}
-            <div className="space-y-2 mb-6 flex-grow">
+            <div className="space-y-3 mb-6 flex-grow">
               <ExpandableSection
                 title="Problem Statement"
                 isOpen={expandedSection === "problem"}
                 onToggle={() => toggleSection("problem")}
               >
-                <p
-                  className="text-sm"
-                  style={{ color: "var(--text-secondary)" }}
-                >
+                <p className="text-sm leading-7 text-[#C9D1D9]">
                   {project.problemStatement}
                 </p>
               </ExpandableSection>
@@ -125,9 +108,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 isOpen={expandedSection === "features"}
                 onToggle={() => toggleSection("features")}
               >
-                <ul className="list-disc list-inside text-sm text-[var(--text-secondary)] space-y-1">
-                  {project.keyFeatures.map((f, i) => (
-                    <li key={i}>{f}</li>
+                <ul className="list-disc list-inside space-y-2 text-sm text-[#C9D1D9]">
+                  {project.keyFeatures.map((feature, i) => (
+                    <li key={i}>{feature}</li>
                   ))}
                 </ul>
               </ExpandableSection>
@@ -137,31 +120,28 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 isOpen={expandedSection === "outcomes"}
                 onToggle={() => toggleSection("outcomes")}
               >
-                <ul className="list-disc list-inside text-sm text-[var(--text-secondary)] space-y-1">
-                  {project.learningOutcomes.map((o, i) => (
-                    <li key={i}>{o}</li>
+                <ul className="list-disc list-inside space-y-2 text-sm text-[#C9D1D9]">
+                  {project.learningOutcomes.map((outcome, i) => (
+                    <li key={i}>{outcome}</li>
                   ))}
                 </ul>
               </ExpandableSection>
             </div>
 
-            {/* Action Button */}
-            <div
-              className="mt-auto pt-4 border-t"
-              style={{ borderColor: "var(--border)" }}
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-[18px] px-5 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.02]"
+              style={{
+                background: actionGradient,
+                boxShadow:
+                  index === 0
+                    ? "0 18px 50px rgba(0,255,153,0.22)"
+                    : "0 18px 50px rgba(0,217,255,0.22)",
+              }}
             >
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="w-full py-3 flex items-center justify-center gap-2 rounded-lg font-medium transition-colors"
-                style={{
-                  backgroundColor: "rgba(var(--bg-primary-rgb), 0.05)",
-                  color: "var(--text-secondary)",
-                }}
-              >
-                View Details
-                <ExternalLink className="w-4 h-4" />
-              </button>
-            </div>
+              View Details
+              <ExternalLink className="h-4 w-4" />
+            </button>
           </div>
         </motion.div>
       </Tilt>
@@ -187,28 +167,16 @@ function ExpandableSection({
   children: React.ReactNode;
 }) {
   return (
-    <div
-      className="border rounded-lg overflow-hidden"
-      style={{
-        backgroundColor: "rgba(0, 0, 0, 0.2)",
-        borderColor: "var(--border)",
-      }}
-    >
+    <div className="overflow-hidden rounded-[18px] border border-[rgba(0,255,170,0.18)] bg-[#08101A]">
       <button
         onClick={onToggle}
-        className="w-full px-4 py-3 flex items-center justify-between text-sm font-medium transition-colors"
-        style={{
-          backgroundColor: "transparent",
-          color: "var(--text-primary)",
-          borderColor: "var(--border)",
-          borderBottom: "1px solid",
-        }}
+        className="flex w-full items-center justify-between px-4 py-3 text-sm font-medium text-white transition-colors"
       >
-        {title}
+        <span>{title}</span>
         {isOpen ? (
-          <ChevronUp className="w-4 h-4" />
+          <ChevronUp className="h-4 w-4" />
         ) : (
-          <ChevronDown className="w-4 h-4" />
+          <ChevronDown className="h-4 w-4" />
         )}
       </button>
       <motion.div
@@ -216,10 +184,7 @@ function ExpandableSection({
         animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
         className="overflow-hidden"
       >
-        <div
-          className="p-4 pt-0 border-t"
-          style={{ borderColor: "var(--border)" }}
-        >
+        <div className="border-t border-[rgba(255,255,255,0.08)] px-4 py-4 text-sm text-[#C9D1D9]">
           {children}
         </div>
       </motion.div>

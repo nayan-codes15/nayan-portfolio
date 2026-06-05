@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://nayan-deep-portfolio.vercel.app/sitemap.xml',
+    sitemap: 'https://potfilolie.vercel.app/sitemap.xml',
   }
 }

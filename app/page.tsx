@@ -1,18 +1,17 @@
-import type { Metadata } from 'next'
+// metadata type removed (unused)
 
-import Hero             from '@/components/sections/Hero'
-import { OpenToWorkBanner } from '@/components/sections/OpenToWorkBanner'
-import About            from '@/components/sections/About'
-import CurrentFocus     from '@/components/sections/CurrentFocus'
-import TechUniverse     from '@/components/sections/TechUniverse'
-import SkillsMatrix     from '@/components/sections/SkillsMatrix'
-import Projects         from '@/components/sections/Projects'
-import GithubActivity   from '@/components/sections/GithubActivity'
-import Certifications   from '@/components/sections/Certifications'
-import Education        from '@/components/sections/Education'
-import LearningJourney  from '@/components/sections/LearningJourney'
-import Contact          from '@/components/sections/Contact'
-
+import Hero from "@/components/sections/Hero";
+import { OpenToWorkBanner } from "@/components/sections/OpenToWorkBanner";
+import About from "@/components/sections/About";
+import CurrentFocus from "@/components/sections/CurrentFocus";
+import TechUniverse from "@/components/sections/TechUniverse";
+import SkillsMatrix from "@/components/sections/SkillsMatrix";
+import Projects from "@/components/sections/Projects";
+import GithubActivity from "@/components/sections/GithubActivity";
+import Certifications from "@/components/sections/Certifications";
+import Education from "@/components/sections/Education";
+import LearningJourney from "@/components/sections/LearningJourney";
+import Contact from "@/components/sections/Contact";
 
 export default function HomePage() {
   return (
@@ -52,7 +51,6 @@ export default function HomePage() {
 
       {/* ── Contact ─────────────────────────────────────── */}
       <Contact />
-
     </>
-  )
+  );
 }

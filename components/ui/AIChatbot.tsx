@@ -271,10 +271,14 @@ export default function AIChatbot() {
                       }
                     >
                       <div className="whitespace-pre-wrap">
-                        {m.parts
-                          ?.filter((p: any) => p.type === "text")
-                          .map((p: any) => p.text)
-                          .join("")}
+                        {(() => {
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          const parts = (m.parts as any[]) || [];
+                          return parts
+                            .filter((p) => p?.type === "text")
+                            .map((p) => p?.text || "")
+                            .join("");
+                        })()}
                       </div>
                     </div>
 
@@ -284,9 +288,10 @@ export default function AIChatbot() {
                         onClick={() =>
                           handleCopy(
                             m.id,
-                            m.parts
-                              ?.filter((p: any) => p.type === "text")
-                              .map((p: any) => p.text)
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            ((m.parts as any[]) || [])
+                              .filter((p) => p?.type === "text")
+                              .map((p) => p?.text || "")
                               .join("") || "",
                           )
                         }
